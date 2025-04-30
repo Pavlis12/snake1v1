@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module Main</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">Main</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cpavel%5Cdesktop%5C%C5%A1kola%5Cpokro%C4%8Dil%C3%A9nastroje%5Csnake%5Csnake1v1%5Cmain.py">c:\users\pavel\desktop\škola\pokročilénastroje\snake\snake1v1\main.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="random.html">random</a><br>
+</td><td class="multicolumn"><a href="tkinter.html">tkinter</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="Main.html#Game">Game</a>
+</dt><dt class="heading-text"><a href="Main.html#Snake">Snake</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Game">class <strong>Game</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Game">Game</a>(root)<br>
+&nbsp;<br>
+Main&nbsp;game&nbsp;controller&nbsp;class.&nbsp;Manages&nbsp;snakes,&nbsp;food,&nbsp;perks,&nbsp;and&nbsp;game&nbsp;state.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;<a href="#Game">Game</a>&nbsp;drawing&nbsp;area.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snake1&nbsp;(<a href="#Snake">Snake</a>):&nbsp;First&nbsp;player&nbsp;snake.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snake2&nbsp;(<a href="#Snake">Snake</a>):&nbsp;Second&nbsp;player&nbsp;snake.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;food&nbsp;(list):&nbsp;List&nbsp;of&nbsp;canvas&nbsp;food&nbsp;items.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;food_count&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;foods&nbsp;eaten.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;perks&nbsp;(list):&nbsp;List&nbsp;of&nbsp;perk&nbsp;canvas&nbsp;items.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, root)</dt><dd><span class="code">Initializes&nbsp;the&nbsp;game,&nbsp;sets&nbsp;up&nbsp;canvas&nbsp;and&nbsp;starts&nbsp;the&nbsp;loop.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;root&nbsp;(tk.Tk):&nbsp;The&nbsp;main&nbsp;Tkinter&nbsp;window.</span></dd></dl>
+
+<dl><dt><a name="Game-activate_perk"><strong>activate_perk</strong></a>(self, snake)</dt><dd><span class="code">Activates&nbsp;a&nbsp;speed&nbsp;boost&nbsp;perk&nbsp;for&nbsp;a&nbsp;given&nbsp;snake.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snake&nbsp;(<a href="#Snake">Snake</a>):&nbsp;The&nbsp;snake&nbsp;that&nbsp;collected&nbsp;the&nbsp;perk.</span></dd></dl>
+
+<dl><dt><a name="Game-check_collisions"><strong>check_collisions</strong></a>(self)</dt><dd><span class="code">Checks&nbsp;for&nbsp;collisions&nbsp;with&nbsp;walls,&nbsp;self,&nbsp;and&nbsp;other&nbsp;snake.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;a&nbsp;collision&nbsp;occurred.</span></dd></dl>
+
+<dl><dt><a name="Game-check_food_collision"><strong>check_food_collision</strong></a>(self, snake)</dt><dd><span class="code">Checks&nbsp;if&nbsp;a&nbsp;snake&nbsp;collides&nbsp;with&nbsp;food.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snake&nbsp;(<a href="#Snake">Snake</a>):&nbsp;The&nbsp;snake&nbsp;to&nbsp;check.</span></dd></dl>
+
+<dl><dt><a name="Game-check_perk_collision"><strong>check_perk_collision</strong></a>(self, snake)</dt><dd><span class="code">Checks&nbsp;if&nbsp;a&nbsp;snake&nbsp;collides&nbsp;with&nbsp;a&nbsp;perk.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snake&nbsp;(<a href="#Snake">Snake</a>):&nbsp;The&nbsp;snake&nbsp;to&nbsp;check.</span></dd></dl>
+
+<dl><dt><a name="Game-check_perk_spawn"><strong>check_perk_spawn</strong></a>(self, snake)</dt><dd><span class="code">Spawns&nbsp;a&nbsp;perk&nbsp;every&nbsp;2&nbsp;eaten&nbsp;foods.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snake&nbsp;(<a href="#Snake">Snake</a>):&nbsp;The&nbsp;snake&nbsp;that&nbsp;ate&nbsp;the&nbsp;food.</span></dd></dl>
+
+<dl><dt><a name="Game-game_loop"><strong>game_loop</strong></a>(self)</dt><dd><span class="code">The&nbsp;main&nbsp;game&nbsp;loop.&nbsp;Updates&nbsp;game&nbsp;state&nbsp;and&nbsp;restarts&nbsp;itself.</span></dd></dl>
+
+<dl><dt><a name="Game-game_over"><strong>game_over</strong></a>(self)</dt><dd><span class="code">Ends&nbsp;the&nbsp;game&nbsp;and&nbsp;shows&nbsp;'<a href="#Game">Game</a>&nbsp;Over'&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="Game-key_press"><strong>key_press</strong></a>(self, event)</dt><dd><span class="code">Handles&nbsp;key&nbsp;presses&nbsp;for&nbsp;both&nbsp;snakes'&nbsp;movement.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;(tk.Event):&nbsp;The&nbsp;key&nbsp;press&nbsp;event.</span></dd></dl>
+
+<dl><dt><a name="Game-remove_perk"><strong>remove_perk</strong></a>(self, triangle)</dt><dd><span class="code">Removes&nbsp;a&nbsp;perk&nbsp;item&nbsp;from&nbsp;the&nbsp;canvas.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;triangle&nbsp;(int):&nbsp;Canvas&nbsp;<a href="builtins.html#object">object</a>&nbsp;ID&nbsp;of&nbsp;the&nbsp;perk.</span></dd></dl>
+
+<dl><dt><a name="Game-restart"><strong>restart</strong></a>(self, event=None)</dt><dd><span class="code">Restarts&nbsp;the&nbsp;game&nbsp;when&nbsp;Enter&nbsp;is&nbsp;pressed.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;(tk.Event,&nbsp;optional):&nbsp;Key&nbsp;press&nbsp;event.</span></dd></dl>
+
+<dl><dt><a name="Game-spawn_food"><strong>spawn_food</strong></a>(self)</dt><dd><span class="code">Randomly&nbsp;spawns&nbsp;up&nbsp;to&nbsp;3&nbsp;food&nbsp;items&nbsp;on&nbsp;unoccupied&nbsp;positions.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Snake">class <strong>Snake</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Snake">Snake</a>(canvas,&nbsp;x,&nbsp;y,&nbsp;color,&nbsp;direction)<br>
+&nbsp;<br>
+Represents&nbsp;a&nbsp;single&nbsp;snake&nbsp;on&nbsp;the&nbsp;game&nbsp;canvas.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;The&nbsp;canvas&nbsp;where&nbsp;the&nbsp;snake&nbsp;is&nbsp;drawn.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;head&nbsp;(int):&nbsp;The&nbsp;canvas&nbsp;<a href="builtins.html#object">object</a>&nbsp;representing&nbsp;the&nbsp;snake's&nbsp;head.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;body&nbsp;(list):&nbsp;List&nbsp;of&nbsp;canvas&nbsp;objects&nbsp;representing&nbsp;the&nbsp;snake's&nbsp;body.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx&nbsp;(int):&nbsp;Horizontal&nbsp;movement&nbsp;direction.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dy&nbsp;(int):&nbsp;Vertical&nbsp;movement&nbsp;direction.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed_boost&nbsp;(bool):&nbsp;Flag&nbsp;for&nbsp;speed&nbsp;boost&nbsp;(activated&nbsp;by&nbsp;perks).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Snake-__init__"><strong>__init__</strong></a>(self, canvas, x, y, color, direction)</dt><dd><span class="code">Initializes&nbsp;a&nbsp;<a href="#Snake">Snake</a>&nbsp;instance.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;The&nbsp;canvas&nbsp;on&nbsp;which&nbsp;to&nbsp;draw&nbsp;the&nbsp;snake.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;(int):&nbsp;Initial&nbsp;x-coordinate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;(int):&nbsp;Initial&nbsp;y-coordinate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;(str):&nbsp;Color&nbsp;of&nbsp;the&nbsp;snake.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(tuple):&nbsp;Initial&nbsp;direction&nbsp;as&nbsp;(dx,&nbsp;dy).</span></dd></dl>
+
+<dl><dt><a name="Snake-get_positions"><strong>get_positions</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;(x,&nbsp;y)&nbsp;positions&nbsp;of&nbsp;the&nbsp;snake&nbsp;(head&nbsp;+&nbsp;body).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;A&nbsp;list&nbsp;of&nbsp;(x,&nbsp;y)&nbsp;coordinate&nbsp;tuples.</span></dd></dl>
+
+<dl><dt><a name="Snake-grow"><strong>grow</strong></a>(self)</dt><dd><span class="code">Adds&nbsp;a&nbsp;new&nbsp;segment&nbsp;to&nbsp;the&nbsp;snake&nbsp;at&nbsp;the&nbsp;current&nbsp;head&nbsp;position.</span></dd></dl>
+
+<dl><dt><a name="Snake-move"><strong>move</strong></a>(self)</dt><dd><span class="code">Moves&nbsp;the&nbsp;snake&nbsp;one&nbsp;step&nbsp;forward&nbsp;in&nbsp;its&nbsp;current&nbsp;direction.<br>
+Shifts&nbsp;body&nbsp;segments&nbsp;to&nbsp;follow&nbsp;the&nbsp;head.</span></dd></dl>
+
+<dl><dt><a name="Snake-set_direction"><strong>set_direction</strong></a>(self, dx, dy)</dt><dd><span class="code">Updates&nbsp;the&nbsp;direction&nbsp;of&nbsp;the&nbsp;snake's&nbsp;movement.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx&nbsp;(int):&nbsp;New&nbsp;horizontal&nbsp;direction.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dy&nbsp;(int):&nbsp;New&nbsp;vertical&nbsp;direction.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DELAY</strong> = 400<br>
+<strong>HEIGHT</strong> = 300<br>
+<strong>STEP</strong> = 10<br>
+<strong>WIDTH</strong> = 400</td></tr></table>
+</body></html>
