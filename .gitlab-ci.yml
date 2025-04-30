@@ -1,8 +1,18 @@
-image: python:3.11
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
 
+# Official language image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/python/tags/
+image: python:latest
+
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
+# https://pip.pypa.io/en/stable/topics/caching/
 cache:
   paths:
     - .cache/pip
@@ -16,43 +26,49 @@ before_script:
   - python3 --version
   - python3 -m venv venv
   - source venv/bin/activate
-  - |
-    if [ -f requirements.txt ]; then
-      pip install -r requirements.txt
-    else
-      echo "No requirements.txt found, skipping..."
-    fi
+  # install dependecies
+  - python -m pip install --upgrade pip
+  # check if requirements exist if so install them
+  - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
 
 test:
   stage: test
   script:
+    # install pytest
     - pip install pytest pytest-cov
+    # Test with pytest
     - pytest --doctest-modules --cov=. --cov-fail-under=66
 
-flake8_lint:
+lint:
   stage: test
   script:
+    # install flake8
     - pip install flake8 flake8-docstrings
+    # Lint with flake8
     - flake8 . --exclude venv
 
 documentation:
   stage: generate_doc
   script:
+    # install pdoc
     - pip install pdoc
-    - mkdir -p docs/
-    - pdoc -o docs/ .
+    # build documentation via pdoc
+    - pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__ --hide=venv`
+    # move to public
     - mv docs/ public/
   artifacts:
     paths:
-      - public/
+      - public
+
 
 pages:
   stage: deploy
   script:
-    - echo "Deploying site to $CI_PAGES_URL"
+    - echo "The site will be deployed to $CI_PAGES_URL"
     - ls public/
   artifacts:
     paths:
-      - public/
+      - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
