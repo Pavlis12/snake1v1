@@ -1,0 +1,58 @@
+image: python:3.11
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+stages:
+  - test
+  - generate_doc
+  - deploy
+
+before_script:
+  - python3 --version
+  - python3 -m venv venv
+  - source venv/bin/activate
+  - |
+    if [ -f requirements.txt ]; then
+      pip install -r requirements.txt
+    else
+      echo "No requirements.txt found, skipping..."
+    fi
+
+test:
+  stage: test
+  script:
+    - pip install pytest pytest-cov
+    - pytest --doctest-modules --cov=. --cov-fail-under=66
+
+flake8_lint:
+  stage: test
+  script:
+    - pip install flake8 flake8-docstrings
+    - flake8 . --exclude venv
+
+documentation:
+  stage: generate_doc
+  script:
+    - pip install pdoc
+    - mkdir -p docs/
+    - pdoc -o docs/ .
+    - mv docs/ public/
+  artifacts:
+    paths:
+      - public/
+
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying site to $CI_PAGES_URL"
+    - ls public/
+  artifacts:
+    paths:
+      - public/
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
